@@ -1,0 +1,26 @@
+name: news-aggregator-mcp-server
+displayName: News Aggregator MCP
+description: Aggregates news from RSS/Atom feeds, HackerNews, and GDELT — covering 65+ languages and 100+ countries. No API key required.
+iconUrl: https://cdn.jsdelivr.net/npm/twemoji@latest/assets/svg/1f4f0.svg
+license: MIT
+homepage: https://github.com/AiAgentKarl/news-aggregator-mcp-server
+repository: https://github.com/AiAgentKarl/news-aggregator-mcp-server
+tags:
+  - news
+  - rss
+  - hackernews
+  - gdelt
+  - aggregator
+  - journalism
+  - media
+  - ai-agent
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({
+      command: "uvx",
+      args: ["news-aggregator-mcp-server"]
+    })

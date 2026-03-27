@@ -1,27 +1,19 @@
 # news-aggregator-mcp-server
 
-MCP-Server für Nachrichten-Aggregation — RSS/Atom-Feeds, HackerNews und GDELT Global News Intelligence für AI-Agents.
+**Multi-source news aggregation for AI agents** — RSS/Atom feeds, HackerNews, and GDELT global news intelligence.
 
-## Features
+[![PyPI version](https://badge.fury.io/py/news-aggregator-mcp-server.svg)](https://pypi.org/project/news-aggregator-mcp-server/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- **11 Tools** für umfassende Nachrichten-Abdeckung
-- **RSS/Atom**: 16 vordefinierte Quellen in 6 Kategorien + beliebige Feeds
-- **HackerNews**: Top/New/Best Stories, Story-Details, Keyword-Suche
-- **GDELT**: Globale Nachrichten in 65+ Sprachen, 100+ Länder, Trend-Analyse
-- **Kostenlos**: Kein API-Key erforderlich
+> **No API key required.** 16 built-in news sources, HackerNews API, and GDELT covering 65+ languages and 100+ countries.
 
-## Installation
+## Quick Start
 
 ```bash
 pip install news-aggregator-mcp-server
 ```
 
-Oder via `uvx`:
-```bash
-uvx news-aggregator-mcp-server
-```
-
-## Claude Desktop Konfiguration
+Add to your MCP client config:
 
 ```json
 {
@@ -34,61 +26,58 @@ uvx news-aggregator-mcp-server
 }
 ```
 
-## Tools
+**That's it.** Ask your AI: *"What are the top tech news today?"*
 
-### RSS/Atom Feeds
-| Tool | Beschreibung |
+## What Can You Do?
+
+**Ask your AI agent things like:**
+- *"Show me the top HackerNews stories about AI"*
+- *"What's trending in global news about climate change?"*
+- *"Get me the latest crypto news from CoinDesk and CryptoSlate"*
+- *"How much media coverage is Bitcoin getting this week?"*
+- *"What are the top news stories from Germany today?"*
+
+## 11 Tools
+
+### RSS/Atom Feeds (16 built-in sources)
+| Tool | What it does |
 |------|-------------|
-| `fetch_feed` | Beliebigen RSS/Atom-Feed abrufen |
-| `get_news_by_category` | News aus Kategorie (tech/ai/general/business/crypto/science) |
-| `search_rss_feeds` | Feeds nach Keyword durchsuchen |
-| `list_feed_catalog` | Alle vordefinierten Quellen anzeigen |
+| `fetch_feed` | Fetch any RSS/Atom feed by URL |
+| `get_news_by_category` | News by category: tech, ai, general, business, crypto, science |
+| `search_rss_feeds` | Search feeds by keyword |
+| `list_feed_catalog` | Show all built-in sources |
 
 ### HackerNews
-| Tool | Beschreibung |
+| Tool | What it does |
 |------|-------------|
-| `get_hackernews_top` | Top/New/Best/Ask/Show/Jobs Stories |
-| `get_hackernews_story` | Story-Details mit Top-Kommentaren |
-| `get_hackernews_trending` | Stories nach Keywords filtern |
+| `get_hackernews_top` | Top/New/Best/Ask/Show/Jobs stories |
+| `get_hackernews_story` | Story details with top comments |
+| `get_hackernews_trending` | Filter stories by keywords |
 
-### GDELT Global News
-| Tool | Beschreibung |
+### GDELT Global News Intelligence
+| Tool | What it does |
 |------|-------------|
-| `search_global_news` | Weltweite Nachrichtensuche (65+ Sprachen) |
-| `get_news_timeline` | News-Volumen-Trend über Zeit |
-| `get_news_by_country` | Nachrichten nach Ländercode (DE, US, GB...) |
-| `get_trending_topics` | Aktuelle Trending-Themen weltweit |
+| `search_global_news` | Search worldwide news (65+ languages) |
+| `get_news_timeline` | News volume trends over time |
+| `get_news_by_country` | News filtered by country code (DE, US, GB...) |
+| `get_trending_topics` | Currently trending topics worldwide |
 
-## Beispiel-Nutzung
+## Built-in News Sources
 
-```python
-# Alle Tech-News der letzten Stunden
-news = await get_news_by_category("ai", max_per_feed=5)
+| Category | Sources |
+|----------|---------|
+| Tech | TechCrunch, Wired, Ars Technica, The Verge |
+| AI | MIT Technology Review, VentureBeat AI, IEEE Spectrum AI |
+| General | Reuters, BBC News, AP News |
+| Business | Bloomberg Technology, Financial Times, CNBC |
+| Crypto | CoinDesk, CryptoSlate, Decrypt |
+| Science | Nature News, Science Daily, NASA News |
 
-# HackerNews Top Stories
-hn = await get_hackernews_top("top", limit=10)
+## Related Servers
 
-# Weltweite Nachrichten über KI-Regulierung
-global_news = await search_global_news("AI regulation", language="english")
+- [social-trends-mcp-server](https://pypi.org/project/social-trends-mcp-server/) — Reddit & HackerNews trending analysis
+- [cybersecurity-mcp-server](https://pypi.org/project/cybersecurity-mcp-server/) — CVE database & vulnerability intelligence
 
-# Trend-Analyse: Wie viel wird über Thema berichtet?
-trend = await get_news_timeline("Bitcoin", timespan="7d")
-
-# News aus Deutschland
-de_news = await get_news_by_country("DE", query="Technologie")
-```
-
-## Kategorien (RSS-Feeds)
-
-| Kategorie | Quellen |
-|-----------|---------|
-| `tech` | TechCrunch, Wired, Ars Technica, The Verge |
-| `ai` | MIT Technology Review, VentureBeat AI, IEEE Spectrum AI |
-| `general` | Reuters, BBC News, AP News |
-| `business` | Bloomberg Technology, Financial Times, CNBC |
-| `crypto` | CoinDesk, CryptoSlate, Decrypt |
-| `science` | Nature News, Science Daily, NASA News |
-
-## Lizenz
+## License
 
 MIT
